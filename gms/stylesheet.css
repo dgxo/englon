@@ -1,0 +1,62 @@
+@import url(/stylesheet.css?v1.1.2);
+
+h1 {
+   margin-top: 5rem;
+}
+
+input[type='text'] {
+   font-family: inherit;
+   background: rgba(255, 255, 255, 0.1);
+   border: none;
+   font-size: 20px;
+   color: #fff;
+   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+   cursor: text;
+   padding-left: 20px;
+   border-radius: 1000px;
+   height: 2rem;
+   width: 14rem;
+}
+
+.new {
+   background-color: #38722c61 !important;
+}
+
+.main {
+   width: 90vw;
+   margin: 0;
+   display: grid;
+   gap: 1rem;
+   justify-content: center;
+   grid-template-areas: 'by-englon external' 'library library';
+   grid-template-columns: 1fr 1fr;
+}
+
+.main div {
+   background: #00000055;
+   border-radius: 30px;
+}
+
+.main .library {
+   padding: 0 2rem 0 2rem;
+   grid-area: library;
+}
+
+.main .by-englon {
+   background: #00000055;
+   border-radius: 30px;
+}
+
+.main .external {
+   grid-area: external;
+}
+
+@media screen and (max-width: 1200px) {
+   .main {
+      flex-direction: column;
+   }
+
+   .main > div {
+      width: 100%;
+   }
+}

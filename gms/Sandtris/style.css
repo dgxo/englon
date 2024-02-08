@@ -1,0 +1,265 @@
+
+
+
+
+
+
+
+@font-face {
+  font-family: "pixelFont";
+  src: url("fonts/retroFont.ttf");
+}
+
+html, body {
+  font-family: "pixelFont";
+  margin: 0;
+  padding: 0;
+  color: rgb(206, 174, 127);
+  background-color: black;
+}
+canvas {
+  display: block;
+}
+
+h1{
+  font-size: 36px;
+  text-shadow: 0px 3px rgb(73, 62, 46);
+}
+
+#cnv{
+  position: absolute;
+  background-color: rgb(206, 174, 127);
+  width: 590px;
+  height: 640px;
+
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 0;
+
+  padding: 10px;
+  box-shadow: 0px 16px rgb(73, 62, 46);
+}
+
+.page{
+  font-size: 24px;
+  position: absolute;
+  width: 304px;
+  height: 304px;
+  padding:0%;
+  top:50%;
+  transform: translate(0,-50%);
+  z-index: 2;
+  border: none;
+  background-color: rgb(165, 150, 127);
+  
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.2);
+
+  
+}
+
+#startpage{
+  height: 500px;
+}
+
+#pausepage{
+  height: 400px;
+}
+
+#aboutpage{
+  height: 630px;
+}
+
+#aboutpage p{
+  font-size: 16px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+#gameoverpage{
+  height: 400px;
+}
+
+button{
+  cursor:pointer;
+  font-size: 24px;
+  border: none;
+  font-family: "pixelFont";
+  background-color: rgb(76, 189, 54);
+  padding:16px;
+  box-shadow: 0px 16px rgb(16, 53, 18);
+}
+
+button:hover{
+  transform: translate(0,8px);
+  box-shadow: 0px 8px rgb(16, 53, 18);
+}
+
+button:active{
+  transform: translate(0,16px);
+  box-shadow: 0px 0px rgb(14, 54, 16);
+}
+
+.smallbutton{
+  cursor:pointer;
+  font-size: 16px;
+  border: none;
+  font-family: "pixelFont";
+  background-color: rgb(189, 54, 54);
+  padding:8px;
+  box-shadow: 0px 8px rgb(53, 16, 16);
+}
+
+.smallbutton:hover{
+  transform: translate(0,4px);
+  box-shadow: 0px 4px rgb(16, 53, 18);
+}
+
+.smallbutton:active{
+  transform: translate(0,8px);
+  box-shadow: 0px 0px rgb(14, 54, 16);
+}
+
+.aboutbutton{
+  cursor:pointer;
+  font-size: 24px;
+  margin:-10px;
+  width:50px;
+  height:50px;
+  border: none;
+  font-family: "pixelFont";
+  background-color: rgb(189, 54, 54);
+  padding:8px;
+  box-shadow: 0px 8px rgb(53, 16, 16);
+}
+
+.aboutbutton:hover{
+  transform: translate(0,4px);
+  box-shadow: 0px 4px rgb(16, 53, 18);
+}
+
+.aboutbutton:active{
+  transform: translate(0,8px);
+  box-shadow: 0px 0px rgb(14, 54, 16);
+}
+
+.sharebutton{
+  cursor:pointer;
+  font-size: 24px;
+  margin:-10px;
+  height:50px;
+  border: none;
+  font-family: "pixelFont";
+  background-color: rgb(54, 139, 189);
+  padding:8px;
+  box-shadow: 0px 8px rgb(16, 38, 53);
+}
+
+.sharebutton:hover{
+  transform: translate(0,4px);
+  box-shadow: 0px 4px rgb(16, 38, 53);
+}
+
+.sharebutton:active{
+  transform: translate(0,8px);
+  box-shadow: 0px 0px rgb(16, 38, 53);
+}
+
+.box{
+  
+  width:100%;
+  /* Firefox */
+  height: -moz-calc(100% - 16px);
+  /* WebKit */
+  height: -webkit-calc(100% - 16px);
+  /* Opera */
+  height: -o-calc(100% - 16px);
+  /* Standard */
+  height: calc(100% - 16px);
+  box-shadow: 0px 16px rgb(65, 61, 57);
+  
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 8px;
+  background: black;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: rgb(65, 61, 57);
+  border-width: 4px ;
+  border-color: black;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: rgb(65, 61, 57);
+  border-width: 4px ;
+  border-color: black;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+
+.logo.is-animation {
+  margin-top: 0.6em;
+}
+
+.logo.is-animation span {
+  display: inline-block;
+  animation: wave-text 1s ease-in-out infinite;
+}
+
+.logo.is-animation span:nth-of-type(1) {
+  animation-delay: 0.0s; 
+}
+.logo.is-animation span:nth-of-type(2) {
+  animation-delay: 0.1s; 
+}
+.logo.is-animation span:nth-of-type(3) {
+  animation-delay: 0.2s; 
+}
+.logo.is-animation span:nth-of-type(4) {
+  animation-delay: 0.3s; 
+}
+.logo.is-animation span:nth-of-type(5) {
+  animation-delay: 0.4s; 
+}
+.logo.is-animation span:nth-of-type(6) {
+  animation-delay: 0.50s; 
+}
+.logo.is-animation span:nth-of-type(7) {
+  animation-delay: 0.6s; 
+}
+.logo.is-animation span:nth-of-type(8) {
+  animation-delay: 0.7s; 
+}
+
+@keyframes wave-text{
+  00%{
+    transform: translateY(0em);
+  }
+  60%{
+    transform: translateY(-0.6em);
+  }
+  100%{
+    transform: translateY(0em);
+  }
+}

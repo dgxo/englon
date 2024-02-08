@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://englon.uk/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://englon.uk/p/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://englon.uk/chat/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://englon.uk/d/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/2048/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/Blokdust/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/Doodleship/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/F1/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/Fighter/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/Hextris/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/Starcatcher/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/Tetris/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/WebRetro/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://englon.uk/gms/Wordle/</loc>
+  <lastmod>2023-07-07T09:31:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

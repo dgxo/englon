@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="pong.css" media="screen, print" rel="stylesheet" type="text/css" />
+  <title>Untitled document - Google Docs</title>
+  <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+  <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
+</head>
+
+<body>
+<!-- Home button, lotta styling but necessary (i think) -->
+<button style="all: unset; display: inline-block; max-width: 100%; white-space: nowrap; overflow: hidden; background-color: #33333399; backdrop-filter: brightness(50%); color: #fff; font-size: 1.5rem; border-radius: 95px; padding: 0 27px; text-align: center; margin: 0; margin-top: 0px; text-decoration: none; box-shadow: 2px 2px 2px 0px #00000017; transition: all 0.25s; user-select: none; position: fixed; top: 1vh; left: 1vh; width: 4rem; height: 4rem; padding: 0; cursor: pointer; z-index: 999999;" onClick="location.href = `/gms`">
+<svg xmlns="http://www.w3.org/2000/svg" height="0.87em" viewBox="0 0 576 512" fill="white" style="cursor: pointer;">
+<!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+<path style="cursor: pointer;" d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+</button>
+
+<!-- Home button, lotta styling but necessary (i think) -->
+<button style="all: unset; display: inline-block; max-width: 100%; white-space: nowrap; overflow: hidden; background-color: #33333399; backdrop-filter: brightness(50%); color: #fff; font-size: 1.5rem; border-radius: 95px; padding: 0 27px; text-align: center; margin: 0; margin-top: 0px; text-decoration: none; box-shadow: 2px 2px 2px 0px #00000017; transition: all 0.25s; user-select: none; position: fixed; top: 1vh; left: 1vh; width: 4rem; height: 4rem; padding: 0; cursor: pointer; z-index: 999999;" onClick="location.href = `/gms`">
+<svg xmlns="http://www.w3.org/2000/svg" height="0.87em" viewBox="0 0 576 512" fill="white" style="cursor: pointer;">
+<!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+<path style="cursor: pointer;" d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
+</button>
+
+  <!-- Home button, lotta styling but necessary (i think) -->
+  <button style="       
+	all: unset;
+	display: inline-block;
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	background-color: #33333399;
+	backdrop-filter: brightness(50%);
+	color: #fff;
+	font-size: 1.5rem;
+	border-radius: 95px;
+	padding: 0 27px;
+	text-align: center;
+	margin: 0;
+	margin-top: 0px;
+	text-decoration: none;
+	box-shadow: 2px 2px 2px 0px #00000017;
+	transition: all 0.25s;
+	user-select: none;
+	position: fixed;
+	top: 1vh;
+	left: 1vh;
+	width: 4rem;
+	height: 4rem;
+	padding: 0;
+	cursor: pointer;
+	z-index: 999999;
+	" onClick="location.href = '/gms'">
+    <svg xmlns="http://www.w3.org/2000/svg" height="0.87em" viewBox="0 0 576 512" fill="white" style="cursor: pointer;">
+      <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+      <path style="cursor: pointer;"
+        d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+    </svg>
+  </button>
+
+  <div id="sidebar">
+
+    <h2>Pong</h2>
+
+    <div class='description'>
+      <p>
+        Press <b>1</b> for a single player game.<br>
+        Press <b>2</b> for a double player game.<br>
+        Press <b>0</b> to watch the computer play itself.
+      </p>
+      <p>
+        Player 1 moves using the <b>Q</b> and <b>A</b> keys.<br>
+        Player 2 moves using the <b>P</b> and <b>L</b> keys.
+      </p>
+      <p>
+        <b>Esc</b> can be used to abandon a game.
+      </p>
+    </div>
+
+    <div class='settings'>
+      <label for='sound'>sound: </label>
+      <input type='checkbox' id='sound' checked>
+    </div>
+
+    <div class='settings'>
+      <label for='stats'>stats: </label>
+      <input type='checkbox' id='stats' checked>
+    </div>
+
+    <div class='settings'>
+      <label for='footprints'>footprints: </label>
+      <input type='checkbox' id='footprints'>
+    </div>
+
+    <div class='settings'>
+      <label for='predictions'>predictions: </label>
+      <input type='checkbox' id='predictions'>
+    </div>
+
+  </div>
+
+  <canvas id="game">
+    <div id="unsupported">
+      Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+    </div>
+  </canvas>
+
+  <script src="game.js" type="text/javascript"></script>
+  <script src="pong.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    Game.ready(function () {
+
+      var size = document.getElementById('size');
+      var sound = document.getElementById('sound');
+      var stats = document.getElementById('stats');
+      var footprints = document.getElementById('footprints');
+      var predictions = document.getElementById('predictions');
+
+      var pong = Game.start('game', Pong, {
+        sound: sound.checked,
+        stats: stats.checked,
+        footprints: footprints.checked,
+        predictions: predictions.checked
+      });
+
+      Game.addEvent(sound, 'change', function () {pong.enableSound(sound.checked);});
+      Game.addEvent(stats, 'change', function () {pong.showStats(stats.checked);});
+      Game.addEvent(footprints, 'change', function () {pong.showFootprints(footprints.checked);});
+      Game.addEvent(predictions, 'change', function () {pong.showPredictions(predictions.checked);});
+
+    });
+  </script>
+
+</body>
+
+</html>

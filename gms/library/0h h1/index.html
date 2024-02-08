@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+
+<head>
+
+   <title>Untitled document - Google Docs</title>
+   <link rel="icon" href="/favicon.ico" />
+   <meta name="description" content="A little logic game by Q42." />
+   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+   <meta name="format-detection" content="telephone=no">
+   <link rel="shortcut icon" href="img/icon-1024.png" />
+   <link rel="apple-touch-icon-precomposed" href="img/icon-1024.png" />
+   <meta name="msapplication-tap-highlight" content="no" />
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta name="apple-mobile-web-app-capable" content="yes" />
+   <meta name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+   <style>
+      html,
+      body {
+         background: #222;
+      }
+   </style>
+   <link href="css/style.css" type="text/css" rel="stylesheet" />
+   <link href="fonts/fonts.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body bgcolor="#222222">
+   <!-- Home button, lotta styling but necessary (i think) -->
+   <button
+      style="all: unset; display: inline-block; max-width: 100%; white-space: nowrap; overflow: hidden; background-color: #33333399; backdrop-filter: brightness(50%); color: #fff; font-size: 1.5rem; border-radius: 95px; padding: 0 27px; text-align: center; margin: 0; margin-top: 0px; text-decoration: none; box-shadow: 2px 2px 2px 0px #00000017; transition: all 0.25s; user-select: none; position: fixed; top: 1vh; left: 1vh; width: 4rem; height: 4rem; padding: 0; cursor: pointer; z-index: 999999;"
+      onClick="location.href = `/gms`">
+      <svg xmlns="http://www.w3.org/2000/svg" height="0.87em" viewBox="0 0 576 512" fill="white"
+         style="cursor: pointer;">
+         <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+         <path style="cursor: pointer;"
+            d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+      </svg>
+   </button>
+
+   <!-- Home button, lotta styling but necessary (i think) -->
+   <button
+      style="all: unset; display: inline-block; max-width: 100%; white-space: nowrap; overflow: hidden; background-color: #33333399; backdrop-filter: brightness(50%); color: #fff; font-size: 1.5rem; border-radius: 95px; padding: 0 27px; text-align: center; margin: 0; margin-top: 0px; text-decoration: none; box-shadow: 2px 2px 2px 0px #00000017; transition: all 0.25s; user-select: none; position: fixed; top: 1vh; left: 1vh; width: 4rem; height: 4rem; padding: 0; cursor: pointer; z-index: 999999;"
+      onClick="location.href = `/gms`">
+      <svg xmlns="http://www.w3.org/2000/svg" height="0.87em" viewBox="0 0 576 512" fill="white"
+         style="cursor: pointer;">
+         <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+         <path style="cursor: pointer;"
+            d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+      </svg>
+   </button>
+
+   <!-- Home button, lotta styling but necessary (i think) -->
+   <button style="       
+      all: unset;
+      display: inline-block;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: #33333399;
+      backdrop-filter: brightness(50%);
+      color: #fff;
+      font-size: 1.5rem;
+      border-radius: 95px;
+      padding: 0 27px;
+      text-align: center;
+      margin: 0;
+      margin-top: 0px;
+      text-decoration: none;
+      box-shadow: 2px 2px 2px 0px #00000017;
+      transition: all 0.25s;
+      user-select: none;
+      position: fixed;
+      top: 1vh;
+      left: 1vh;
+      width: 4rem;
+      height: 4rem;
+      padding: 0;
+      cursor: pointer;
+      z-index: 999999; 
+      " onClick="location.href = '/gms'">
+      <svg xmlns="http://www.w3.org/2000/svg" height="0.87em" viewBox="0 0 576 512" fill="white"
+         style="cursor: pointer;">
+         <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+         <path style="cursor: pointer;"
+            d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+      </svg>
+   </button>
+   <div id="container">
+      <div id="title" class="screen show01 hide0 hide1 hidehs" data-action="close-titleScreen">
+         <div class="vertical">
+            <h1>Oh hi</h1>
+            <div id="titlegrid" class="board">
+               <div id="digits">
+                  <span id="zero">0</span><span id="hs"> h h </span><span id="one">1</span>
+               </div>
+               <table data-grid="titlegrid" cellpadding="0" cellspacing="0">
+                  <tbody>
+                     <tr>
+                        <td class="odd">
+                           <div class="tile tile-2">
+                              <div class="inner"></div>
+                           </div>
+                        </td>
+                        <td class="even">
+                           <div class="tile tile-1">
+                              <div class="inner"></div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <p>
+               a little logic game<br>by Q42
+            </p>
+         </div>
+      </div>
+      <div id="menu" class="screen">
+         <div class="vertical">
+            <h2>Oh hi</h2>
+            <p data-action="tutorial">
+               How to play
+            </p>
+            <p data-action="play">
+               Play
+            </p>
+            <p data-action="about">
+               About
+            </p>
+         </div>
+      </div>
+      <div id="about" class="screen text" data-action="show-menu">
+         <div class="vertical">
+            <h3>About</h3>
+            <p>
+               0h h1 is a little logic game<br>
+               by Q42.<br>
+               <br>
+               It was created by<br>
+               Martin Kool.<br>
+               <br>
+               The concept is also known<br>
+               as Takuzu or Binairo.<br>
+               <br>
+               (c) 2014<br>
+               www.q42.com
+            </p>
+         </div>
+      </div>
+      <div id="loading" class="screen">
+         <div class="vertical">
+            <h2>Loading</h2>
+            <p></p>
+            <div id="loadinggrid" class="board">
+               <table data-grid="loadinggrid" cellpadding="0" cellspacing="0">
+                  <tbody>
+                     <tr>
+                        <td class="odd">
+                           <div class="tile tile-2 loading">
+                              <div class="inner"></div>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div id="game" class="screen">
+         <p id="hintMsg" class="topMsg"></p>
+         <p id="chooseSize" class="topMsg">Select a size to play...</p>
+         <h2 id="boardsize"></h2>
+         <div id="board" class="vertical board"></div>
+         <div id="menugrid" class="vertical board hidden">
+            <table data-grid="menugrid" cellpadding="0" cellspacing="0">
+               <tbody>
+                  <tr>
+                     <td class="odd">
+                        <div class="tile tile-2">
+                           <div data-action="startGame" data-size="1" class="inner"></div>
+                        </div>
+                     </td>
+                     <td class="even">
+                        <div class="tile tile-1">
+                           <div data-action="startGame" data-size="2" class="inner"></div>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td class="even">
+                        <div class="tile tile-1">
+                           <div data-action="startGame" data-size="3" class="inner"></div>
+                        </div>
+                     </td>
+                     <td class="odd">
+                        <div class="tile tile-2">
+                           <div data-action="startGame" data-size="4" class="inner"></div>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div id="score">
+            <img id="trophy" src="img/trophy.png"><span id="scorenr">30744</span>
+         </div>
+         <div id="bar">
+            <div class="iconcon" data-action="undo">
+               <div id="undo" class="icon"></div>
+            </div>
+            <div class="iconcon" data-action="back">
+               <div id="back" class="icon"></div>
+            </div>
+            <a class="iconcon" id="tweeturl" target="_blank" href="about:blank" data-action="tweet"><span id="tweet"
+                  class="icon"></span></a>
+            <div class="iconcon" data-action="help">
+               <div id="help" class="icon"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="feelsize"></div>
+   <script>
+      var WebFontConfig = {
+         custom: {
+            families: ['molle', 'Josefin Sans'],
+            urls: ['fonts/fonts.css']
+         },
+         active: function () {
+            //Game.start();
+            app.fontsLoaded();
+         }
+      };  
+   </script>
+   <script type="text/javascript" src="config.js"></script>
+   <script type="text/javascript" src="js/index.js"></script>
+   <script>
+      var scripts = [
+         'js/jquery-2.1.0.min.js',
+         'js/utils.js',
+         'js/state.js',
+         'js/game.js',
+         'js/grid.js',
+         'js/tile.js',
+         'js/hint.js',
+         'js/tutorial.js',
+         'js/webfont.js',
+         'js/levels.js',
+         'js/backgroundservice.js'
+      ]
+      for (var i = 0; i < scripts.length; i++) {
+         document.write('<scr' + 'ipt src="' + scripts[i] + (Config.barph ? ('?barph=' + (new Date() * 1)) : '') + '"></scr' + 'ipt>');
+      }
+   </script>
+</body>
+
+</html>

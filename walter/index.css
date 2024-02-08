@@ -1,0 +1,12 @@
+#DIV1 {
+   border: 3px solid brown;
+   margin: 50px;
+   color: #dea36f;
+   font-family: 'Courier New';
+   background-color: #3d2611;
+   text-align: center;
+}
+
+body {
+   background-image: url('waltback.jpg');
+}

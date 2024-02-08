@@ -1,0 +1,29 @@
+@font-face {
+   font-family: 'Comic Sans';
+   font-weight: normal;
+   src: url(/content/fonts/ComicSans.ttf);
+}
+
+@font-face {
+   font-family: 'Comic Sans';
+   font-weight: bold;
+   src: url(/content/fonts/ComicSansBold.ttf);
+}
+
+header {
+   background: none;
+   backdrop-filter: blur(20px);
+}
+
+html {
+   font-family: 'Comic Sans' !important;
+   background: url('/images/jake.jpg') center center / cover no-repeat fixed !important;
+}
+
+h1 {
+   font-family: 'Comic Sans' !important;
+}
+
+#taylor {
+   display: block !important;
+}

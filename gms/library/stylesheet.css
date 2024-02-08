@@ -1,0 +1,49 @@
+@import url(/stylesheet.css);
+
+.links {
+   line-height: 2.9rem;
+   width: 80vw;
+}
+
+main {
+   justify-content: start;
+}
+
+input[type='text'] {
+   font-family: inherit;
+   background: rgba(255, 255, 255, 0.1);
+   border: none;
+   font-size: 20px;
+   color: #fff;
+   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+   cursor: text;
+   padding-left: 20px;
+   border-radius: 1000px;
+   height: 2rem;
+}
+
+a.button.disabled {
+   cursor: not-allowed;
+   background-color: #23232361;
+}
+
+a.button.disabled:hover {
+   backdrop-filter: none !important;
+}
+
+.new {
+   background-color: #38722c61 !important;
+}
+
+h1 {
+   margin-bottom: 0;
+}
+
+h3 {
+   margin: 1rem 0;
+}
+
+h3.sorted {
+   margin-bottom: 7vh;
+   font-style: italic;
+}

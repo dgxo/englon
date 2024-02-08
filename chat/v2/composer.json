@@ -1,0 +1,11 @@
+{
+    "require": {
+        "php-translation/translator": "^1.2",
+        "symfony/http-client": "^6.3",
+        "nyholm/psr7": "^1.8",
+        "php-http/curl-client": "^2.3",
+        "guzzlehttp/psr7": "^2.6",
+        "php-http/message": "^1.16",
+        "swearjar/swearjar": "^0.4.0"
+    }
+}
