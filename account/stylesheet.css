@@ -16,6 +16,10 @@
    max-width: 70vw;
 }
 
+p {
+   margin: 0;
+}
+
 #dashboard .grid {
    display: grid;
    grid-template-columns: repeat(4, auto);
@@ -410,7 +414,6 @@ th {
    border-color: #1e40af;
 }
 
-
 .admin-logon {
    display: flex;
    flex-direction: column;
@@ -422,7 +425,7 @@ th {
    padding-top: 0;
 }
 
-.admin-logon input[type=password] {
+.admin-logon input[type='password'] {
    height: 2.5rem;
    width: 100%;
 }

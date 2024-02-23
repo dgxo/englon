@@ -20,7 +20,7 @@ session_start();
 
    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
    <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
-   <link rel="stylesheet" href="stylesheet.css?1.7.6">
+   <link rel="stylesheet" href="stylesheet.css?1.7.7">
    <script>
       var _paq = window._paq = window._paq || [];
 
@@ -61,6 +61,21 @@ session_start();
       if ($rows == 1) {
          $row = $result->fetch_array(MYSQLI_ASSOC);
 
+         if ($row["id"] == 80) { // guest
+            ?>
+            <main>
+               <div id="main-card">
+                  <h2>The Guest account has been disabled.</h2>
+
+                  <p>If you would like to use Englon, please create an account.</p>
+                  <p>To learn more about why this change was made, wait until I make a blog post lol.</p>
+                  <p><a class='link' href='login'>Login</a> | <a class='link' href='register'>Register</a></p>
+               </div>
+            </main>
+            <?php
+            die();
+         }
+
          if ($row["suspended"] == 1) {
             ?>
             <main>
@@ -93,7 +108,7 @@ session_start();
          }
          $_SESSION['messages'] = $row["messages"];
          $_SESSION['creation'] = date_create($row["create_datetime"]);
-	 $_SESSION['creation'] = date_format($_SESSION['creation'], "d/m/Y");
+         $_SESSION['creation'] = date_format($_SESSION['creation'], "d/m/Y");
          $_SESSION['notes'] = $row["notes"];
          $_SESSION['id'] = $row["id"];
          $_SESSION['avatar'] = $row["avatar"];

@@ -46,8 +46,8 @@ if (!isset($_SESSION["username"])) {
 
          if (time() >= $time + 600) { // if it's been 10 mins since cooldown started
             if ($_GET['key'] == 'hmmm') { // correct
-               echo "You now have admin for this session. Not much you can do with it, but DM me @dgox2 on Discord and I might give you special
-         access to something though.";
+               echo "You now have admin <b>for this session</b>. Not much you can do with it, but DM me @dgox2 on Discord and I might give you special
+         access to something else though.";
                $_SESSION['admin'] = true;
                webhook();
             } else {

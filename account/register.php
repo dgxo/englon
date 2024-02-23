@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-die("lol no");
+//die("lol no");
 
 try {
    ?>
@@ -131,7 +131,7 @@ try {
          ?>
          <main>
             <form id="loginform" method="" name="">
-               <p class="title">Register on Englon</p>
+               <p class="title">Register on Englon (sorry lol)</p>
                <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true">
                <input type="password" class="login-input" pattern="(?=.*\d)(?!.*[</>]).{6,}" name="password"
                   placeholder="Password - number and min 6 chars">

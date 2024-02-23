@@ -69,6 +69,8 @@ if (isset($_GET['adminnotes'])) {
                      <th>Creation Date</th>
                      <th>Messages</th>
                      <th>Admin</th>
+                     <th>Suspended</th>
+                     <th>Reason</th>
                      <th>Notes</th>
                      <th>Edit</th>
                   </tr>
@@ -82,12 +84,15 @@ if (isset($_GET['adminnotes'])) {
                   if ($result) {
 
                      while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                        $avatar = $row['avatar'];  
+                        $avatar = $row['avatar'];
                         $id = $row['id'];
                         $username = $row['username'];
-                        $creation = mb_split("\s", $row['create_datetime'])[1];
+                        $creation = date_create($row["create_datetime"]);
+                        $creation = date_format($creation, "d/m/Y h:i A");
                         $messages = $row['messages'];
                         $admin = $row['admin'] ? 'True' : 'False';
+                        $suspended = $row['suspended'] ? 'True' : 'False';
+                        $suspension_reason = $row['suspension_reason'];
                         $notes = mb_strimwidth($row['notes'], 0, 30, '...');
                         $controls = "<a target='_blank' href='adminer.php?username=phpmysql&db=englon&edit=users&where%5Bid%5D=$id'><svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'><!--! from Font Awesome --><path fill='white' d='M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z'/></svg></a>";
                         echo "<tr>
@@ -99,6 +104,8 @@ if (isset($_GET['adminnotes'])) {
                                  <td>$creation</td>
                                  <td>$messages</td>
                                  <td>$admin</td>
+                                 <td>$suspended</td>
+                                 <td>$suspension_reason</td>
                                  <td id='notes'>$notes</td>
                                  <td>$controls</td>
                               </tr>";
@@ -112,7 +119,7 @@ if (isset($_GET['adminnotes'])) {
                </tbody>
             </table>
          </div>
-
+         <?= $result->num_rows ?> Users
 
          <h2>Notes</h2>
          <form>

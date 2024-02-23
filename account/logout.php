@@ -8,4 +8,3 @@ if (session_destroy()) {
    error_log("Gave SWR error: " . $error);
    header("Location: /swr?id=" . base64_encode($error));
 }
-?>
