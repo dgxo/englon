@@ -43,6 +43,8 @@ try {
 
    <body>
       <?php
+      $registerDisabled = true;
+
       include("/var/www/html/englon/header.php");
       require('../db.php');
 
@@ -52,7 +54,7 @@ try {
       }
 
       // When form submitted, insert values into the database.
-      if (isset($_REQUEST['username'])) {
+      if (isset($_REQUEST['username']) && !$registerDisabled) {
          if (empty($_REQUEST['password'])) {
             echo "<main><div id='dashboard'>
             <h3>Password cannot be empty.</h3
@@ -131,7 +133,10 @@ try {
          ?>
          <main>
             <form id="loginform" method="" name="">
-               <p class="title">Register on Englon (sorry lol)</p>
+               <p class="title">Register on Englon</p>
+               <?php if ($registerDisabled) { ?>
+                  <p>Registering accounts is disabled.</p>
+               <?php } ?>
                <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true">
                <input type="password" class="login-input" pattern="(?=.*\d)(?!.*[</>]).{6,}" name="password"
                   placeholder="Password - number and min 6 chars">

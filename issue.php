@@ -18,13 +18,13 @@ if (isset($_POST['message'])) {
    $avatar = isset($_SESSION["avatar"]) ? $_SESSION["avatar"] : null;
 
    // Send message to Discord webhook
-   // $webhookurl = 'https://discord.com/api/webhooks/1158895668354617364/z8ETpKWB_Da5Kn7TAIh9R6GHmCjtybv0iBAi3fVbkwHgExxNrJpCIVCWZFNRLRV-b7vN';
+   $webhookurl = 'https://discord.com/api/webhooks/1158895668354617364/z8ETpKWB_Da5Kn7TAIh9R6GHmCjtybv0iBAi3fVbkwHgExxNrJpCIVCWZFNRLRV-b7vN';
 
-   // $json_data = json_encode([
-   //    "content" => "New issue submitted: \n```\n$message\n```",
-   //    "username" => $_SESSION['username'] ?? 'No Username',
-   //    "avatar_url" => 'https://englon.biz/images/avatars/' . $_SESSION['avatar'] ?? null
-   // ]);
+   $json_data = json_encode([
+      "content" => "New issue submitted: \n```\n$message\n```",
+      "username" => $_SESSION['username'] ?? 'No Username',
+      "avatar_url" => 'https://englon.biz/images/avatars/' . $_SESSION['avatar'] ?? null
+   ]);
 
    if (trim($_POST['message']) == '7fec0d3f951a') {
       header("Location: /walter/what-now?iamfromenteringthatcodeintotheissuepage");

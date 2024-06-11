@@ -23,7 +23,7 @@
    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
    <link rel="shortcut icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
    <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico">
-   <link rel="stylesheet" href="stylesheet.css?v1.1.8">
+   <link rel="stylesheet" href="stylesheet.css?v1.1.10">
    <script async src="/common.js?"></script>
    <!-- Matomo -->
    <script>
@@ -35,7 +35,7 @@
       _paq.push(['enableJSErrorTracking']);
       (function () {
          var u = "//stats.englon.biz/";
-         _paq.push(['setTrackerUrl', u + 'e'])
+B         _paq.push(['setTrackerUrl', u + 'e'])
          _paq.push(['setSiteId', '1']);
 
          var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
@@ -61,7 +61,7 @@
    <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
    <script defer src="/index.js?"></script>
    <?php
-   include("/var/www/html/englon/header.php");
+include("/var/www/html/englon/header.php");
    ?>
    <div id="particles-js"></div>
    <main>
@@ -70,6 +70,7 @@
          <div id="taylor">
             <h2>Taylor mode lol</h2>
          </div>
+	 <h2>Currently transferring hosts, expect problems to arise. (report on issues)</h2>
          <h3>Give suggestions for new gаmes and sites in the <a class="link" href="/discord">Discord</a> or on chat!
          </h3>
          <p>Did you know Englon has been DDoSed 4 times in the past 2 weeks?</p>
@@ -78,7 +79,7 @@
          </a>
          <h2>Coming Soon</h2>
          <ul class="list">
-            <li>Chat v2!</li>
+            <li>Englon v2!</li>
             <li><i>Got any ideas? Suggest it on the <a class="link" href="/issue">issue page</a>
                   or in the <b>NEW</b> <a class="link" href="/discord">Discord</a>!</i></li>
          </ul>
@@ -104,8 +105,8 @@
       </div>
    </main>
    <footer>
-      <b>&copy; 2024 Englon Ltd. All Rights Reserved.</b>
-      <br>Redistribution is prohibited and will result in legal action.
+      <b>&copy; 1913 Englon  Ltd. All Rights Reserved.</b>
+      <br>Redistribution is prohibited.
    </footer>
 </body>
 

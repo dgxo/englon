@@ -1,5 +1,5 @@
 <?php
-$invite = 'https://discord.gg/e5MnAQncnZ';
+$invite = 'https://discord.gg/2YmMnnNbt4';
 header("Location: $invite");
 session_start(); ?>
 
@@ -48,7 +48,7 @@ session_start(); ?>
 		<main>
 			<div class="main">
 				<!-- unreachable, php does redirect with headers most times -->
-				<h1><a class="link" href="https://discord.gg/JKPBAbcQRU">Discord</a></h1>
+				<h1><a class="link" href="https://discord.gg/2YmMnnNbt4">Discord</a></h1>
 			</div>
 		</main>
 	</body>

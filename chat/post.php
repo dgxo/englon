@@ -11,13 +11,17 @@ session_start();
 
 if (isset($_SESSION['username']) && isset($_POST['text'])) {
    $contents = !empty($_POST['text']) ? htmlspecialchars($_POST['text']) : 'Empty message';
-   $contents = mb_strimwidth($contents, 0, 400, "<i>...</i>");
+   $contents = mb_strimwidth($contents, 0, 46, "poo monster...");
 
    // $text = $translator->translate($text, 'en', 'cy');
 
    $username = empty($_SESSION['username']) ? 'Guest' : htmlspecialchars($_SESSION['username']);
    $avatar = $_SESSION['avatar'] ? $_SESSION['avatar'] : 'default.png';
-   $time = date("g:i A");
+   $tz = 'Europe/London';
+$timestamp = time();
+$dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+$dt->setTimestamp($timestamp); //adjust the object to correct timestamp
+$time = $dt->format('l jS, g:i a');
 
    // links (only adds a preview for one for now to prevent spam)
    $matches = [];
@@ -103,7 +107,7 @@ if (isset($_SESSION['username']) && isset($_POST['text'])) {
 
    // Send message to Discord webhook
 
-   $webhookurl = 'https://discord.com/api/webhooks/1120794272627691631/HI1hKaE_wkrULwTrHkS82Pb84LUmml7o2RFnSElDd75KQ13hFDXhaQ2nWJhygwzKRlXw';
+   $webhookurl = 'https://discord.com/api/webhooks/1182465059939696740/6vHH2suurW8kcezQRdJeIyX-E1zTbXfG-hf_eJeDeK2pL2GcSWemVgg7kVBjqMh6nIor';
 
    $json_data = json_encode([
       "content" => $contents,
@@ -113,36 +117,6 @@ if (isset($_SESSION['username']) && isset($_POST['text'])) {
 
    $ch = curl_init($webhookurl);
    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
-   curl_setopt($ch, CURLOPT_POST, 1);
-   curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-   curl_setopt($ch, CURLOPT_HEADER, 0);
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-   $response = curl_exec($ch);
-   $err = curl_error($ch);
-   curl_close($ch);
-
-   if ($err) {
-      $error = 'cURL error in chat post, with error ' . $err;
-      error_log("Gave SWR error: " . $error);
-      header("Location: /swr?id=" . base64_encode($error));
-   }
-
-   // Send message to SECOND Discord webhook in new server
-
-   $webhookurl = 'https://discord.com/api/webhooks/1182465059939696740/6vHH2suurW8kcezQRdJeIyX-E1zTbXfG-hf_eJeDeK2pL2GcSWemVgg7kVBjqMh6nIor';
-
-   $json_data = json_encode([
-      "content" => $_POST['text'],
-      "username" => $_SESSION['username'],
-      "avatar_url" => 'https://englon.biz/images/avatars/' . $_SESSION['avatar'],
-      "file" => curl_file_create($_FILES["file"]["tmp_name"], $_FILES["file"]["type"], $_FILES["file"]["name"])
-   ], JSON_UNESCAPED_UNICODE);
-
-
-   $ch = curl_init($webhookurl);
-   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: multipart/form-data'));
    curl_setopt($ch, CURLOPT_POST, 1);
    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);

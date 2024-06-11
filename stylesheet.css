@@ -457,6 +457,7 @@ nav.mobile ul li a {
    padding: 17px 27px;
    width: 100%;
    transition: background-color 150ms;
+	z-index: 10000;
 }
 
 nav.mobile ul li a:hover {

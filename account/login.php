@@ -115,7 +115,11 @@ session_start();
 
          $avatar = $_SESSION['avatar'] ? $_SESSION['avatar'] : 'default.png';
          $username = $_SESSION['username'];
-         $time = date("g:i A");
+         $tz = 'Europe/London';
+$timestamp = time();
+$dt = new DateTime("now", new DateTimeZone($tz)); //first argu>
+$dt->setTimestamp($timestamp); //adjust the object to correct >
+$time = $dt->format('l jS, g:i a');
 
          $login_message = "<div class='msgln'><img class='avatar' src='/images/avatars/$avatar'><div class='user'>$username <span class='chat-time'>$time</span></div><div class='text'><b class='joined'>has logged in.</b></div><br></div>\n";
 
