@@ -82,7 +82,7 @@
    <script>
       var _paq = window._paq = window._paq || [];
 
-      _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = '<?= $_SESSION['username'] ?>']);
+      _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = <?= json_encode(isset($_SESSION['username']) ? $_SESSION['username'] : 'null') ?>]);
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function () {
@@ -111,18 +111,18 @@
             href="/discord">Discord</a>, explaining what you were trying to do along with the error reference below.
       </h2>
       <h3>Error Reference:</h3>
-         <pre><?= isset($_REQUEST['id']) ? $_REQUEST['id'] : '???' ?></pre>
+         <pre><?= isset($_REQUEST['id']) ? htmlspecialchars($_REQUEST['id'], ENT_QUOTES, 'UTF-8') : '???' ?></pre>
 
          <?php if (isset($_SESSION['admin'])): ?>
                Decoded:
-               <pre><?= isset($_REQUEST['id']) ? htmlspecialchars(base64_decode($_REQUEST['id'])) : '???' ?></pre>
+               <pre><?= isset($_REQUEST['id']) ? htmlspecialchars(base64_decode($_REQUEST['id']), ENT_QUOTES, 'UTF-8') : '???' ?></pre>
          <?php endif ?>
    </main>
 
    <script type="text/javascript">
       var sc_project = 12897198;
       var sc_invisible = 1;
-      var sc_security = "39beb5ae"; 
+      var sc_security = "39beb5ae";
    </script>
    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
    <noscript>
@@ -136,9 +136,9 @@
       $webhookurl = 'https://discord.com/api/webhooks/1152913859309486120/S0-Bzy07LdhfqXHu3che01i2Un6IpzuXLU_Bd0crEmxolX_xrlcSSrt0pRXMYlZLE1er';
 
       $json_data = json_encode([
-         "content" => "Got an SWR error: " . base64_decode(stripslashes($_REQUEST['id'])) . "\nEncoded: " . stripslashes($_REQUEST['id']),
-         "username" => $_SESSION['username'] ?? 'SWR Error',
-         "avatar_url" => 'https://englon.biz/images/avatars/' . $_SESSION['avatar'] ?? null
+         "content" => "Got an SWR error: " . htmlspecialchars(base64_decode(stripslashes($_REQUEST['id'])), ENT_QUOTES, 'UTF-8') . "\nEncoded: " . htmlspecialchars(stripslashes($_REQUEST['id']), ENT_QUOTES, 'UTF-8'),
+         "username" => htmlspecialchars($_SESSION['username'] ?? 'SWR Error', ENT_QUOTES, 'UTF-8'),
+         "avatar_url" => 'https://englon.biz/images/avatars/' . (isset($_SESSION['avatar']) && !empty($_SESSION['avatar']) ? htmlspecialchars($_SESSION['avatar'], ENT_QUOTES, 'UTF-8') : 'default.png')
       ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
 

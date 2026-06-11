@@ -27,7 +27,7 @@ try {
       <script>
          var _paq = window._paq = window._paq || [];
 
-         _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = '<?= $_SESSION['username'] ?>']);
+         _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = <?= json_encode($_SESSION['username'] ?? 'Not Logged In') ?>]);
          _paq.push(['trackPageView']);
          _paq.push(['enableLinkTracking']);
          (function () {
@@ -68,25 +68,46 @@ try {
          $username = mysqli_real_escape_string($con, $username);
 
          // check if username is taken
-         $query = "SELECT * FROM users 
-                  WHERE username = '$username'";
-         $result = mysqli_query($con, $query);
+         $query = "SELECT * FROM users WHERE username = ?";
+         $stmt = mysqli_prepare($con, $query);
+         if (!$stmt) {
+            $error = 'Prepared statement failed: ' . mysqli_error($con);
+            error_log("Gave SWR error: " . $error);
+            header("Location: /swr?id=" . base64_encode($error));
+            die();
+         }
+         mysqli_stmt_bind_param($stmt, 's', $username);
+         mysqli_stmt_execute($stmt);
+         $result = mysqli_stmt_get_result($stmt);
 
          if ($result->num_rows >= 1) {
             echo "<main><div id='dashboard'>
             <h3>That username is taken.</h3><br/>
             <a class='link' href='register'>Click here to retry</a>
             </div></main>";
+            mysqli_stmt_close($stmt);
             die();
          }
+         mysqli_stmt_close($stmt);
 
          $password = stripslashes($_REQUEST['password']);
          $password = mysqli_real_escape_string($con, $password);
+         $password_hash = password_hash($password, PASSWORD_DEFAULT);
          $create_datetime = date("Y-m-d H:i:s");
-         $query = "INSERT into `users` (username, password, create_datetime)
-                  VALUES ('$username', '" . md5($password) . "', '$create_datetime')";
-         $result = mysqli_query($con, $query);
+
+         // Use prepared statement for insert
+         $query = "INSERT into `users` (username, password_hash, create_datetime) VALUES (?, ?, ?)";
+         $stmt = mysqli_prepare($con, $query);
+         if (!$stmt) {
+            $error = 'Prepared statement failed: ' . mysqli_error($con);
+            error_log("Gave SWR error: " . $error);
+            header("Location: /swr?id=" . base64_encode($error));
+            die();
+         }
+         mysqli_stmt_bind_param($stmt, 'ss', $username, $password_hash, $create_datetime);
+         $result = mysqli_stmt_execute($stmt);
          if ($result) {
+            mysqli_stmt_close($stmt);
 
             $webhookurl = 'https://discord.com/api/webhooks/1157682267821457519/x4sSjMmPHIllE7l9UK3OPkNiPv6Tx7ATgVjOkf2re7GlfigNth_PLJnD0nPzw31E9E45';
 
@@ -121,12 +142,14 @@ try {
          } elseif (mysqli_error($con)) {
             $error = 'Query failed on register with error ' . mysqli_error($con);
             error_log("Gave SWR error: " . $error);
+            mysqli_stmt_close($stmt);
             header("Location: /swr?id=" . base64_encode($error));
          } else {
             echo "<main><div id='dashboard'>
                   <h3>Required fields are missing.</h3><br/>
                   <a href='register' class='link'>Click here to register again.</a>
                   </div></main>";
+            mysqli_stmt_close($stmt);
             die();
          }
       } else {

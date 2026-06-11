@@ -54,12 +54,30 @@ session_start();
       $password = stripslashes($_REQUEST['password']);
       $password = mysqli_real_escape_string($con, $password);
       // Check user is exist in the database
-      $query = "SELECT admin, messages, create_datetime, notes, id, avatar, suspended, suspension_reason FROM `users` WHERE username='$username'
-                     AND password='" . md5($password) . "'";
-      $result = mysqli_query($con, $query) or die(mysqli_error($con));
+      $query = "SELECT admin, messages, create_datetime, notes, id, avatar, suspended, suspension_reason FROM `users` WHERE username=?";
+      $stmt = mysqli_prepare($con, $query);
+      if (!$stmt) {
+         $error = 'Prepared statement failed: ' . mysqli_error($con);
+         error_log("Gave SWR error: " . $error);
+         header("Location: /swr?id=" . base64_encode($error));
+         die();
+      }
+      mysqli_stmt_bind_param($stmt, 's', $username);
+      mysqli_stmt_execute($stmt);
+      $result = mysqli_stmt_get_result($stmt);
       $rows = mysqli_num_rows($result);
       if ($rows == 1) {
          $row = $result->fetch_array(MYSQLI_ASSOC);
+         // Verify password using password_verify
+         $password_valid = password_verify($password, $row['password_hash']);
+         if (!$password_valid) {
+            echo "<main><div class='form'>
+                     <h3>Incorrect Username/password.</h3><br/>
+                     <p class='link'>Click here to <a class='link' href='login'>Login</a> again.</p>
+                     </div></main>";
+            mysqli_stmt_close($stmt);
+            die();
+         }
 
          if ($row["id"] == 80) { // guest
             ?>
@@ -113,33 +131,36 @@ session_start();
          $_SESSION['id'] = $row["id"];
          $_SESSION['avatar'] = $row["avatar"];
 
-         $avatar = $_SESSION['avatar'] ? $_SESSION['avatar'] : 'default.png';
-         $username = $_SESSION['username'];
+         $avatar = htmlspecialchars($row["avatar"] ?? 'default.png', ENT_QUOTES, 'UTF-8');
+         $username = htmlspecialchars($row["username"] ?? $_SESSION['username'], ENT_QUOTES, 'UTF-8');
          $tz = 'Europe/London';
 $timestamp = time();
 $dt = new DateTime("now", new DateTimeZone($tz)); //first argu>
 $dt->setTimestamp($timestamp); //adjust the object to correct >
 $time = $dt->format('l jS, g:i a');
 
-         $login_message = "<div class='msgln'><img class='avatar' src='/images/avatars/$avatar'><div class='user'>$username <span class='chat-time'>$time</span></div><div class='text'><b class='joined'>has logged in.</b></div><br></div>\n";
+         $login_message = "<div class='msgln'><img class='avatar' src='/images/avatars/" . htmlspecialchars($row["avatar"] ?? 'default.png', ENT_QUOTES, 'UTF-8') . "'><div class='user'>" . htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8') . " <span class='chat-time'>$time</span></div><div class='text'><b class='joined'>has logged in.</b></div><br></div>\n";
 
          file_put_contents("../chat/log.html", $login_message, FILE_APPEND);
 
          // Redirect to user dashboard page
          if (isset($_GET['to']) && str_starts_with($_GET['to'], '/')) {
-            header("Location: https://" . $_SERVER['SERVER_NAME'] . htmlspecialchars($_GET['to']));
+            header("Location: https://" . htmlspecialchars($_SERVER['SERVER_NAME'], ENT_QUOTES, 'UTF-8') . htmlspecialchars($_GET['to'], ENT_QUOTES, 'UTF-8'));
          } else {
             header("Location: dashboard");
          }
+         mysqli_stmt_close($stmt);
       } elseif ($rows > 1) {
-         $error = "More than one user with username '$username' on login";
+         $error = "More than one user with username '" . htmlspecialchars($username, ENT_QUOTES, 'UTF-8') . "' on login";
          error_log("Gave SWR error: " . $error);
+         mysqli_stmt_close($stmt);
          header("Location: /swr?id=" . base64_encode($error));
       } else {
          echo "<main><div class='form'>
                   <h3>Incorrect Username/password.</h3><br/>
                   <p class='link'>Click here to <a class='link' href='login'>Login</a> again.</p>
                   </div></main>";
+         mysqli_stmt_close($stmt);
       }
    } else {
       ?>

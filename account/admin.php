@@ -37,7 +37,7 @@ if (isset($_GET['adminnotes'])) {
    <script>
       var _paq = window._paq = window._paq || [];
 
-      _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = '<?= $_SESSION['username'] ?>']);
+      _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = <?= json_encode($_SESSION['username'] ?? 'Not Logged In') ?>]);
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function () {

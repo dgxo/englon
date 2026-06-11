@@ -29,7 +29,7 @@
    <script>
       var _paq = window._paq = window._paq || [];
 
-      _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = '<?= isset($_SESSION['username']) ? $_SESSION['username'] : 'Not Logged In' ?>']);
+      _paq.push(['setCustomDimension', customDimensionId = 1, customDimensionValue = <?= json_encode(isset($_SESSION['username']) ? $_SESSION['username'] : 'Not Logged In') ?>]);
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       _paq.push(['enableJSErrorTracking']);
