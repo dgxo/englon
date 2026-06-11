@@ -109,7 +109,7 @@ try {
          if ($result) {
             mysqli_stmt_close($stmt);
 
-            $webhookurl = 'https://discord.com/api/webhooks/1157682267821457519/x4sSjMmPHIllE7l9UK3OPkNiPv6Tx7ATgVjOkf2re7GlfigNth_PLJnD0nPzw31E9E45';
+            $webhookurl = getenv('DISCORD_WEBHOOK_REGISTER');
 
             $json_data = json_encode([
                "content" => $username . ' signed up with ID ' . mysqli_insert_id($con),
@@ -135,10 +135,17 @@ try {
                header("Location: /swr?id=" . base64_encode($error));
             }
 
-            echo "<main><div id='dashboard'>
-                  <h3>You have been registered successfully.</h3><br/>
-                  <a class='link' href='login'>Click here to Login</a>
-                  </div></main>";
+            $user_id = mysqli_insert_id($con);
+            $_SESSION['username'] = $username;
+            $_SESSION['admin'] = 0;
+            $_SESSION['messages'] = 0;
+            $_SESSION['avatar'] = 'default.png';
+            $_SESSION['id'] = $user_id;
+            $_SESSION['creation'] = date('d/m/Y');
+            $_SESSION['notes'] = '';
+
+            header("Location: /account/dashboard");
+            exit;
          } elseif (mysqli_error($con)) {
             $error = 'Query failed on register with error ' . mysqli_error($con);
             error_log("Gave SWR error: " . $error);

@@ -133,7 +133,7 @@
    <?php
    if (isset($_REQUEST['id'])) {
       // Send message to Discord webhook
-      $webhookurl = 'https://discord.com/api/webhooks/1152913859309486120/S0-Bzy07LdhfqXHu3che01i2Un6IpzuXLU_Bd0crEmxolX_xrlcSSrt0pRXMYlZLE1er';
+      $webhookurl = getenv('DISCORD_WEBHOOK_ERROR');
 
       $json_data = json_encode([
          "content" => "Got an SWR error: " . htmlspecialchars(base64_decode(stripslashes($_REQUEST['id'])), ENT_QUOTES, 'UTF-8') . "\nEncoded: " . htmlspecialchars(stripslashes($_REQUEST['id']), ENT_QUOTES, 'UTF-8'),

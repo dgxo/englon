@@ -8,6 +8,7 @@
 // $translator->addTranslatorService(new GoogleTranslator('api_key'));
 
 session_start();
+require('/var/www/html/englon/db.php');
 
 if (isset($_SESSION['username']) && isset($_POST['text'])) {
    $contents = !empty($_POST['text']) ? htmlspecialchars($_POST['text'], ENT_QUOTES, 'UTF-8') : 'Empty message';
@@ -33,7 +34,7 @@ $time = $dt->format('l jS, g:i a');
       $link = $matches[0];
 
       // make get request to link preview API
-      $ch = curl_init('https://api.linkpreview.net/?key=50dc46cfcf2c56c2fc0720b58deb5c48&q=' . $link);
+      $ch = curl_init('https://api.linkpreview.net/?key=' . getenv('LINK_PREVIEW_API_KEY') . '&q=' . $link);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $response = curl_exec($ch);
       curl_close($ch);
@@ -108,9 +109,7 @@ $time = $dt->format('l jS, g:i a');
       file_put_contents("log.html", $text_message, FILE_APPEND);
    }
 
-   // Increment messages count
-$_SESSION['messages'] += 1;
-require('/var/www/html/englon/db.php');
+   $_SESSION['messages'] += 1;
 
 // Use prepared statement to prevent SQL injection
 $query = "UPDATE users SET messages = ? WHERE username = ?";
@@ -128,9 +127,7 @@ mysqli_stmt_close($stmt);
    $ip = $_SERVER['REMOTE_ADDR'];
    error_log("User sent chat message: $username, $ip");
 
-   // Send message to Discord webhook
-
-   $webhookurl = 'https://discord.com/api/webhooks/1182465059939696740/6vHH2suurW8kcezQRdJeIyX-E1zTbXfG-hf_eJeDeK2pL2GcSWemVgg7kVBjqMh6nIor';
+   $webhookurl = getenv('DISCORD_WEBHOOK_CHAT');
 
    $json_data = json_encode([
       "content" => $contents,

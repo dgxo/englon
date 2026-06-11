@@ -1,23 +1,20 @@
 <?php
 
-if ($_SERVER['SCRIPT_NAME'] === '/db.php') {
-   $error = "silly geezer went to db.php";
-   $error_encoded = trim(base64_encode($error), '=');
-   error_log("Gave SWR error: " . $error);
-   header("Location: /swr?id=" . $error_encoded);
-   die();
+$dotenv_path = __DIR__ . '/.env';
+if (file_exists($dotenv_path)) {
+   $env_vars = parse_ini_file($dotenv_path);
+   foreach ($env_vars as $key => $value) {
+      putenv("$key=$value");
+   }
 }
 
-// Enter your host name, database username, password, and database name.
-// If you have not set database password on localhost then set empty.
 $con = mysqli_connect(
-   "localhost",
-   "phpmysql",
-   "j%XNr&P'j!#~89@",
-   "englon"
+   getenv('DB_HOST'),
+   getenv('DB_USER'),
+   getenv('DB_PASSWORD'),
+   getenv('DB_NAME')
 );
 
-// Check connection
 if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
    $error = 'Failed to connect to the MySQL database englon: ' . mysqli_connect_error();
