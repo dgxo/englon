@@ -9,10 +9,10 @@ if (file_exists($dotenv_path)) {
 }
 
 $con = mysqli_connect(
-   getenv('DB_HOST'),
-   getenv('DB_USER'),
-   getenv('DB_PASSWORD'),
-   getenv('DB_NAME')
+   getenv('MYSQL_HOST'),
+   getenv('MYSQL_USER'),
+   getenv('MYSQL_PASSWORD'),
+   getenv('MYSQL_DATABASE')
 );
 
 if (mysqli_connect_errno()) {
